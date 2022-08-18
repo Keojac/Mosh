@@ -5,7 +5,7 @@ function Carousels() {
     return (
         <div>
             <hr />
-            <h2 className="browse">Connect through Events</h2>
+            <h4 className="browse">Connect through Events</h4>
             <Carousel>
                 <Carousel.Item>
                     <img
@@ -56,8 +56,17 @@ function Carousels() {
 
     const Home = () => {
         return (
-            <div>
-                
+            <div className="carousel-container">
+                <h2>Create your own crew to mosh at events with</h2>
+                <Carousels />
+                <div className="mission">
+                    <br />
+                    <br />
+                    <p>Our mission is to make events more accessible to everyone. We don't want factors such as
+                        age, genre or not having someone to go with limit someone from attending something they enjoy.
+                        So we wanted to make something that could bring people together over a shared love for their interests.
+                    </p>
+                </div>
             </div>
         )
     }
