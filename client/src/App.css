@@ -40,6 +40,7 @@
 .navbar {
   background-color: #fc8b18;
   color: black;
+  /* position: fixed !important; */
 }
 
 .title {
@@ -98,6 +99,17 @@
   border-radius: 20px;
 }
 
+.category, img {
+  display: block;
+  width: 80%;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.category, :link {
+  text-decoration: none;
+}
 
 @media (max-width: 400px) {
 
@@ -127,4 +139,12 @@
   .mission {
     height: 350px;
   }
+
+  .category, img {
+    width: 90%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
 }
