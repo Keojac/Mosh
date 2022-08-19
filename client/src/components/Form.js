@@ -33,7 +33,7 @@ const Form = (props) => {
                     </li>
                     <li>
                         <label for="image">Image (default selected if blank):</label>
-                        <input type="image" name="image" />
+                        <input type="file" name="image" />
                     </li>
                     <li>
                         <label for="description">Description:</label>

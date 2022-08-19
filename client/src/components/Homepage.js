@@ -63,7 +63,7 @@ function Carousels() {
                     <br />
                     <br />
                     <p>Our mission is to make events more accessible to everyone. We don't want factors such as
-                        age, genre or not having someone to go with limit someone from attending something they enjoy.
+                        age, genre or not having someone to go with, limit someone from attending something they enjoy.
                         So we wanted to make something that could bring people together over a shared love for their interests.
                     </p>
                 </div>

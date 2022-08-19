@@ -27,6 +27,10 @@
   height: 700px;
 }
 
+.carousel-container, h2 {
+  margin-top: 10px;
+}
+
 .mission {
   position: relative;
   background-color: #ff9248;
@@ -109,9 +113,13 @@
   }
 
   .mission {
-    height: 350px;
+    height: 170px;
   }
-  
+
+  .mission, p {
+    font-size: 12px;
+  }
+
   /* Navbar css */
 
   .nav_text {
