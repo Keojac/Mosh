@@ -16,10 +16,10 @@ function NavBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Link className="nav_text" to="/">Home</Link>
-                        <Link className="nav_text" to="/categories">Categories</Link>
+                        <Link className="nav_text" to="/events/categories">Categories</Link>
+                        <Link className="nav_text" to="/events/new">Create Event</Link>
                         <Link className="nav_text" to="/profile">My Profile</Link>
-                        <Link className="nav_text" to="/new">Create Event</Link>
-                        <Link className="nav_text" to="/categories">My Events</Link>
+                        <Link className="nav_text" to="/events/user">My Events</Link>
                         <Link className="nav_text" to="/register">
                             {" "}
                             <Button className="register" variant="dark">

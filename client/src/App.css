@@ -1,52 +1,7 @@
+/* Homepage css */
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.navbar {
-  background-color: #fc8b18;
-  color: black;
-  /* position: fixed !important; */
-}
-
-.title {
-  font-size: 60px;
-  text-decoration: none;
-  color: black;
 }
 
 .carousel {
@@ -72,6 +27,31 @@
   height: 700px;
 }
 
+.mission {
+  position: relative;
+  background-color: #ff9248;
+  height: 200px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+/* Navbar css */
+
+.navbar {
+  background-color: #fc8b18;
+  color: black;
+  /* position: fixed !important; */
+}
+
+.title {
+  font-size: 60px;
+  text-decoration: none;
+  color: black;
+}
+
 .nav_text {
   color: black;
   font-size: 16px;
@@ -88,16 +68,7 @@
   width: fit-content;
 }
 
-.mission {
-  position: relative;
-  background-color: #ff9248;
-  height: 200px;
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 50px;
-  font-size: 20px;
-  border-radius: 20px;
-}
+/* Category page css */
 
 .category, img {
   display: block;
@@ -111,11 +82,24 @@
   text-decoration: none;
 }
 
+/* Create event page css */
+
+.form {
+  list-style: none;
+}
+
+.form, li {
+  margin-top: 30px;
+}
+
+
 @media (max-width: 400px) {
 
   body {
     height: fit-content;
   }
+
+  /* Homepage css */
 
   .carouselImg {
     display: block;
@@ -123,7 +107,13 @@
     height: 300px;
     margin: 0 auto;
   }
+
+  .mission {
+    height: 350px;
+  }
   
+  /* Navbar css */
+
   .nav_text {
     color: black;
     font-size: 16px;
@@ -136,9 +126,7 @@
     margin-left: 10px;
   }
 
-  .mission {
-    height: 350px;
-  }
+  /* Category page css */
 
   .category, img {
     width: 90%;
