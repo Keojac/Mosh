@@ -9,12 +9,8 @@ const Form = (props) => {
                         <input type="text" name="name" />
                     </li>
                     <li>
-                        <label for="date">Date:</label>
-                        <input type="date" name="date" />
-                    </li>
-                    <li>
-                        <label for="time">Time:</label>
-                        <input type="time" name="time" />
+                        <label for="datetime">Datetime:</label>
+                        <input type="datetime-local" name="datetime" />
                     </li>
                     <li>
                         <label for="location">Location:</label>
