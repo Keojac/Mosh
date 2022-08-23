@@ -82,6 +82,10 @@ def new_event():
     event = g.db["cursor"].fetchone()
     return jsonify(event)
 
+# @app.route("/profile/:userID/myevents", methods=["DELETE"])
+# def delete_event():
+
+
 @app.route("/register", methods=["POST"])
 def register():
     username = request.json["username"]

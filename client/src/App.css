@@ -135,6 +135,13 @@
   height: fit-content;
 }
 
+/* My events page */
+
+.event_table, td {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
 @media (max-width: 400px) {
 
   body {
@@ -197,4 +204,12 @@
   .logout_button {
     margin-right: 141px;
   }
+
+  /* My events page */
+
+  .event_table, td {
+    padding-left: 10px;
+  }
+
+
 }

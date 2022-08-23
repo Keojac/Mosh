@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Outlet } from "react-router-dom"
 
 const Profile = (props) => {
     const { users } = props
@@ -15,6 +15,7 @@ const Profile = (props) => {
                 <li><h3>Location:</h3><p>{user.location}</p></li>
             </ul>
             <button>Edit Profile</button>
+            <Outlet />
         </div>
     )
 }

@@ -7,10 +7,12 @@ import Categories from './components/Categories';
 import EventCategory from './components/EventCategory';
 import IndividualEvent from './components/IndividualEvent';
 import Profile from './components/User/Profile';
+import MyEvents from './components/MyEvents';
 import Form from './components/Form';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
 import Logout from './components/User/Logout';
+
 
 function App() {
   // all events
@@ -88,7 +90,7 @@ function App() {
     }
     formData.append("image", image)
 
-    
+
     // for item of fields
     fetch("/events/new", {
       method: "POST",
@@ -102,7 +104,7 @@ function App() {
         navigate("/profile/" + currentUser.id)
       })
   }
-  // console.log(events);
+
   return (
     <div className="App">
       <NavBar authorised={authorised} handleLogout={handleLogout} currentUser={currentUser} />
@@ -112,6 +114,8 @@ function App() {
         <Route path="/events/:category" element={events && <EventCategory events={events} />} />
         <Route path="/events/:category/:eventID" element={users && events && <IndividualEvent events={events} users={users} />} />
         <Route path="/profile/:userID" element={users && events && <Profile currentUser={currentUser} events={events} users={users} />} />
+        <Route path="/profile/:userID/myevents" element={users && events && <MyEvents currentUser={currentUser} events={events} />} />
+        
         {/* /profile/:userID/myevents - outlet from profile */}
         <Route path="/events/new" element={users && <Form createEvent={createEvent} user={currentUser} />} />
         <Route path="/register" element={<Register handleRegister={handleAuth} />} />
