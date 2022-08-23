@@ -126,6 +126,15 @@
   border-radius: 30px;
 }
 
+/* Logout */
+
+.logout_button {
+  width: 80px;
+  margin: 0 auto;
+  margin-right: 165px;
+  height: fit-content;
+}
+
 @media (max-width: 400px) {
 
   body {
@@ -183,4 +192,9 @@
     height: 450px;
   }
 
+  /* Logout */
+
+  .logout_button {
+    margin-right: 141px;
+  }
 }

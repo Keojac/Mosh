@@ -5,19 +5,19 @@ const Form = (props) => {
             <form>
                 <ul className="form">
                     <li>
-                        <label for="name">Name of Event:</label>
+                        <label htmlFor="name">Name of Event:</label>
                         <input type="text" name="name" />
                     </li>
                     <li>
-                        <label for="datetime">Datetime:</label>
+                        <label htmlFor="datetime">Datetime:</label>
                         <input type="datetime-local" name="datetime" />
                     </li>
                     <li>
-                        <label for="location">Location:</label>
+                        <label htmlFor="location">Location:</label>
                         <input type="text" name="location" />
                     </li>
                     <li>
-                        <label for="category">Category:</label>
+                        <label htmlFor="category">Category:</label>
                         <select name="category">
                             <option value="art">Art</option>
                             <option value="music">Music</option>
@@ -28,11 +28,11 @@ const Form = (props) => {
                         </select>
                     </li>
                     <li>
-                        <label for="image">Image (default selected if blank):</label>
+                        <label htmlFor="image">Image (default selected if blank):</label>
                         <input type="file" name="image" />
                     </li>
                     <li>
-                        <label for="description">Description:</label>
+                        <label htmlFor="description">Description:</label>
                         <textarea rows="8" cols="50" />
                     </li>
                     <li>
