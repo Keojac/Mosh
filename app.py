@@ -84,22 +84,19 @@ def new_event():
 @app.route("/register", methods=["POST"])
 def register():
     username = request.json["username"]
-    password = request.json["password"]
-    profile_image = request.files["profile_image"]
-    uploaded_image = cloudinary.uploader.upload(image)
-    image_url = uploaded_image["url"]
+    unhashed_password = request.json["password"]
     location = request.json["location"]
-    interests = request.json["interests"]
     
-    password_hash = generate_password_hash(password)
+    password = generate_password_hash(unhashed_password)
     query = """
         INSERT INTO users
-        (username, password_hash, image_url, location, interests)
-        VALUES (%s, %s, %s, %s, %s)
+        (username, password, location)
+        VALUES (%s, %s, %s)
+        RETURNING id, username, location
     """
     cur = g.db["cursor"]
     try: 
-        cur.execute(query, (username, password_hash, image_url, location, interests))
+        cur.execute(query, (username, password, location))
     except psycopg2.IntegrityError:
         return jsonify(success=False, msg="Username already taken")
     
@@ -124,24 +121,24 @@ def login():
     if user is None:
         return jsonify(success=False, msg="Username or password is incorrect")
 
-    password_matches = check_password_hash(user["password_hash"], password)
+    password_matches = check_password_hash(user["password"], password)
 
     if not password_matches:
         return jsonify(success=False, msg="Username or password is incorrect")
     
-    user.pop("password_hash")
+    user.pop("password")
     session["user"] = user
     return jsonify(success=True, user=user)
 
-    @app.route("/logout", methods=["POST"])
-    def logout():
-        session.pop("user", None)
-        return jsonify(success=True)
+@app.route("/logout", methods=["POST"])
+def logout():
+    session.pop("user", None)
+    return jsonify(success=True)
     
-    @app.route("/is-authenticated")
-    def is_authenticated():
-        user = session.get("user", None)
-        if user:
-            return jsonify(success=True, user=user)
-        else:
-            return jsonify(success=False, msg="User is not logged in")
+@app.route("/is-authenticated")
+def is_authenticated():
+    user = session.get("user", None)
+    if user:
+        return jsonify(success=True, user=user)
+    else:
+        return jsonify(success=False, msg="User is not logged in")
