@@ -79,16 +79,41 @@ function App() {
     navigate("/")
   }
 
+  // Create Event Function
+
+  const createEvent = (fields, image) => {
+    const formData = new FormData()
+    for (let key in fields) {
+      formData.append(key, fields[key])
+    }
+    formData.append("image", image)
+
+    
+    // for item of fields
+    fetch("/events/new", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        setEvents([...events, data])
+        navigate("/profile/" + currentUser.id)
+      })
+  }
+  // console.log(events);
   return (
     <div className="App">
-      <NavBar authorised={authorised} handleLogout={handleLogout} />
+      <NavBar authorised={authorised} handleLogout={handleLogout} currentUser={currentUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events/categories" element={<Categories />} />
         <Route path="/events/:category" element={events && <EventCategory events={events} />} />
         <Route path="/events/:category/:eventID" element={users && events && <IndividualEvent events={events} users={users} />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/events/new" element={<Form />} />
+        <Route path="/profile/:userID" element={users && events && <Profile currentUser={currentUser} events={events} users={users} />} />
+        {/* /profile/:userID/myevents - outlet from profile */}
+        <Route path="/events/new" element={users && <Form createEvent={createEvent} user={currentUser} />} />
         <Route path="/register" element={<Register handleRegister={handleAuth} />} />
         <Route path="/login" element={<Login handleLogin={handleAuth} />} />
         <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />

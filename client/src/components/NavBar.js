@@ -7,7 +7,7 @@ import Logout from './User/Logout';
 
 
 function NavBar(props) {
-    const { authorised, handleLogout } = props
+    const { authorised, handleLogout, currentUser } = props
     return (
         <Navbar className="navbar" variant="light" expand="lg">
             <Container>
@@ -23,7 +23,7 @@ function NavBar(props) {
                             <Link className="nav_text" to="/events/new">Create Event</Link>
                         )}
                         {authorised && (
-                            <Link className="nav_text" to="/profile">My Profile</Link>
+                            <Link className="nav_text" to={"/profile/" + currentUser.id}>My Profile</Link>
                         )}
                         {authorised && (
                             <Link className="nav_text" to="/events/user">My Events</Link>

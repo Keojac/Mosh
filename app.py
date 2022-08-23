@@ -5,6 +5,7 @@ from .db import get_db, close_db
 from werkzeug.security import generate_password_hash, check_password_hash
 import psycopg2 
 import os
+import cloudinary.uploader
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")

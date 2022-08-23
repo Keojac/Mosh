@@ -1,15 +1,21 @@
+import { useParams } from "react-router-dom"
+
 const Profile = (props) => {
+    const { users } = props
+    const { userID } = useParams()
+    const param = parseInt(userID)
+    const user = users.find((user) => param === user.id)
+    console.log(user);
     return (
         <div>
-            <h1>(insert name's) Profile</h1>
+            <h1>{user.username}'s Profile</h1>
             <ul className="form">
-                <li><h3>Name:</h3><p>insert name</p></li>
-                <li><h3>Interests:</h3><p>insert interests</p></li>
-                <li><h3>Location:</h3><p>insert location</p></li>
+                <li><img className="profile_picture" src={user.profile_image} alt="user profile" /></li>
+                <li><h3>Interests:</h3><p>{user.interests ? user.interests : "No interests listed"}</p></li>
+                <li><h3>Location:</h3><p>{user.location}</p></li>
             </ul>
             <button>Edit Profile</button>
         </div>
-
     )
 }
 
