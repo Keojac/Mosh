@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom"
+import { useState } from "react";
 
 const Event = (props) => {
     const { event, category } = props
@@ -16,6 +17,7 @@ const Event = (props) => {
 }
 
 const EventCategory = (props) => {
+    const [query, setQuery] = useState("")
     const { category } = useParams()
     const eventList = props.events
         .filter((event) =>
@@ -30,12 +32,18 @@ const EventCategory = (props) => {
                 />
             )
         })
+
+    const search = (data) => {
+        return data.filter((item) => item.props.event.name.toLowerCase().includes(query) || item.props.event.location.toLowerCase().includes(query))
+    }
+
     if (eventList) {
         return (
             <div className="events_container">
                 <Link to={"/events/categories"}><p>Back to category list</p></Link>
                 <h1>{category}</h1>
-                {eventList}
+                <input type="text" placeholder="Search by name or location..." onChange={(e) => setQuery(e.target.value)} />
+                {search(eventList)}
             </div>
         )
     } else {

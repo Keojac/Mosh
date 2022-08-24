@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const Register = (props) => {
     const [fields, setFields] = useState({ username: "", password: "", location: "" })
-
+    const navigate = useNavigate()
     const handleChange = (event) => {
         setFields({
             ...fields,
@@ -19,7 +19,7 @@ const Register = (props) => {
             body: JSON.stringify(fields),
         })
         const data = await res.json()
-        props.handleRegister(data)
+        navigate("/login")
     }
 
     return (

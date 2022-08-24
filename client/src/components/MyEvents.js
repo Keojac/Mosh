@@ -35,22 +35,31 @@ const MyEvents = (props) => {
                 />
             )
         })
-    return (
-        <>
-        <h1>My Events</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Datetime</th>
-              <th>Location</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>{eventList}</tbody>
-        </table>
-      </>
-    )
+
+    if (eventList.length !== 0) {
+        return (
+            <>
+                <h1>My Events</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Datetime</th>
+                            <th>Location</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>{eventList}</tbody>
+                </table>
+            </>
+        )
+    } else {
+        return (
+            <div>
+                <h2>You have not created any events yet</h2>
+            </div>
+        )
+    }
 }
 
 

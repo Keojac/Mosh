@@ -6,10 +6,6 @@ const Profile = (props) => {
     const { userID } = useParams()
     const param = parseInt(userID)
     const user = users.find((user) => param === user.id)
-    
-    useEffect(() => {
-
-    })
 
     return (
         <div>

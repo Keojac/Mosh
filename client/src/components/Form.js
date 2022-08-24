@@ -20,14 +20,12 @@ const Form = (props) => {
         let updatedFields = {...fields}
         updatedFields[name] = value
         setFields(updatedFields)
-        console.log(updatedFields);
     }
 
     const handleSubmit = (event) => {
         console.log(event);
         event.preventDefault()
         createEvent(fields, image)
-        console.log(fields);
     }
 
     const handleImageChange = (event) => {

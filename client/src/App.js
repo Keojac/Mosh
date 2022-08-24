@@ -63,7 +63,7 @@ function App() {
     setCurrentUser(authed.user)
     navigate("/")
   }
-
+  console.log(currentUser);
   // Check login status/ authorisation
 
   useEffect(() => {
@@ -155,7 +155,7 @@ function App() {
       })
       .then((data) => {
         setEvents([...events, data])
-        navigate("/profile/" + currentUser.id)
+        navigate(`/profile/${currentUser.id}/myevents`)
       })
   }
 
@@ -166,10 +166,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events/categories" element={<Categories />} />
         <Route path="/events/:category" element={events && <EventCategory events={events} />} />
-        <Route path="/events/:category/:eventID" element={users && events && <IndividualEvent events={events} users={users} />} />
-        <Route path="/profile/:userID" element={users && events && <Profile currentUser={currentUser} events={events} users={users} />} />
-        <Route path="/profile/:userID/myevents" element={users && events && <MyEvents currentUser={currentUser} events={events} />} />
-        <Route path="/events/new" element={users && <Form createEvent={createEvent} user={currentUser} />} />
+        <Route path="/events/:category/:eventID" element={authorised && users && events && <IndividualEvent events={events} users={users} />} />
+        <Route path="/profile/:userID" element={authorised && users && events && <Profile currentUser={currentUser} events={events} users={users} />} />
+        <Route path="/profile/:userID/myevents" element={authorised && users && events && <MyEvents currentUser={currentUser} events={events} />} />
+        <Route path="/events/new" element={authorised && users && <Form createEvent={createEvent} user={currentUser} />} />
         <Route path="/profile/edit-event/:eventID" element={users && events && <Edit events={events} currentUser={currentUser} handleEdit={handleEdit} handleDelete={handleDelete} />} />
         <Route path="/register" element={<Register handleRegister={handleAuth} />} />
         <Route path="/login" element={<Login handleLogin={handleAuth} />} />
