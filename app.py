@@ -82,8 +82,38 @@ def new_event():
     event = g.db["cursor"].fetchone()
     return jsonify(event)
 
-# @app.route("/profile/:userID/myevents", methods=["DELETE"])
-# def delete_event():
+@app.route("/profile/edit-event/<eventID>", methods=["DELETE"])
+def delete_event(eventID):
+    query = """
+        DELETE FROM events
+        WHERE id = %s
+        RETURNING *
+    """
+    cur = g.db['cursor']
+    cur.execute(query, (eventID,))
+    g.db['connection'].commit()
+    event = cur.fetchone()
+    return jsonify(event)
+
+@app.route("/profile/edit-event/<eventID>", methods=["PUT"])
+def update_event(eventID):
+    name = request.form["name"]
+    datetime = request.form["datetime"]
+    location = request.form["location"]
+    category = request.form["category"]
+    description = request.form["description"]
+
+    query = """
+        UPDATE events
+        SET name = %s, datetime = %s, location = %s, category = %s, description = %s
+        WHERE events.id = %s
+        RETURNING *
+    """
+    cur = g.db["cursor"]
+    cur.execute(query, (name, datetime, location, category, description, eventID))
+    g.db["connection"].commit()
+    event = g.db["cursor"].fetchone()
+    return jsonify(event)
 
 
 @app.route("/register", methods=["POST"])

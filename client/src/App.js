@@ -9,6 +9,7 @@ import IndividualEvent from './components/IndividualEvent';
 import Profile from './components/User/Profile';
 import MyEvents from './components/MyEvents';
 import Form from './components/Form';
+import Edit from './components/Edit';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
 import Logout from './components/User/Logout';
@@ -81,6 +82,38 @@ function App() {
     navigate("/")
   }
 
+  // Edit Event Function
+
+  const handleEdit = async (edit, index, image) => {
+    const formData = new FormData()
+    for (let key in edit) {
+      formData.append(key, edit[key])
+    }
+    formData.append("image", image)
+    const res = await fetch(`/profile/edit-event/${edit.id}`, {
+      method: "PUT",
+      body: formData,
+    })
+    const editedEvents = await res.json()
+    setEvents([
+      ...events.slice(0, index),
+      editedEvents,
+      ...events.slice(index + 1),
+    ])
+  }
+
+  // Delete Event Function
+
+  const handleDelete = async (eventID) => {
+    await fetch(`/profile/edit-event/${eventID}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/ json"
+      }
+    })
+    setEvents(events.filter((event) => event.id !== eventID))
+  }
+
   // Create Event Function
 
   const createEvent = (fields, image) => {
@@ -89,9 +122,6 @@ function App() {
       formData.append(key, fields[key])
     }
     formData.append("image", image)
-
-
-    // for item of fields
     fetch("/events/new", {
       method: "POST",
       body: formData,
@@ -115,9 +145,8 @@ function App() {
         <Route path="/events/:category/:eventID" element={users && events && <IndividualEvent events={events} users={users} />} />
         <Route path="/profile/:userID" element={users && events && <Profile currentUser={currentUser} events={events} users={users} />} />
         <Route path="/profile/:userID/myevents" element={users && events && <MyEvents currentUser={currentUser} events={events} />} />
-        
-        {/* /profile/:userID/myevents - outlet from profile */}
         <Route path="/events/new" element={users && <Form createEvent={createEvent} user={currentUser} />} />
+        <Route path="/profile/edit-event/:eventID" element={users && events && <Edit events={events} currentUser={currentUser} handleEdit={handleEdit} handleDelete={handleDelete} />} />
         <Route path="/register" element={<Register handleRegister={handleAuth} />} />
         <Route path="/login" element={<Login handleLogin={handleAuth} />} />
         <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />

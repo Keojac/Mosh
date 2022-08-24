@@ -138,7 +138,7 @@
 /* My events page */
 
 .event_table, td {
-  padding-left: 30px;
+  padding-left: 50px;
   padding-top: 20px;
 }
 
@@ -208,7 +208,7 @@
   /* My events page */
 
   .event_table, td {
-    padding-left: 10px;
+    padding-left: 5px;
   }
 
 

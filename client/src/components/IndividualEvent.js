@@ -5,8 +5,6 @@ const IndividualEvent = (props) => {
     const param = parseInt(eventID)
     const event = props.events.find((event) => event.id === param)
     const user = props.users.find((user) => event.user_id === user.id)
-    console.log(event);
-    console.log(user);
     return (
         <div>
             <div>

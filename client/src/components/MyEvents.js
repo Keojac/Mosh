@@ -11,14 +11,10 @@ const Event = (props) => {
             <td>{event.datetime}</td>
             <td>{event.location}</td>
             <td>{event.category}</td>
-            <td>{event.description}</td>
             <td>
-                <Link to={"/my-reviews/edit/" + event.id}>
+                <Link to={"/profile/edit-event/" + event.id}>
                     <button>Edit</button>
                 </Link>
-            </td>
-            <td>
-                <button>Delete</button>
             </td>
         </tr>
 
@@ -40,10 +36,20 @@ const MyEvents = (props) => {
             )
         })
     return (
-        <div>
-            <h2>My Events</h2>
-            {eventList}
-        </div>
+        <>
+        <h1>My Events</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Datetime</th>
+              <th>Location</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>{eventList}</tbody>
+        </table>
+      </>
     )
 }
 
