@@ -61,9 +61,13 @@ def new_event():
     datetime = request.form["datetime"]
     location = request.form["location"]
     category = request.form["category"]
-    image = request.files["image"]
-    uploaded_image = cloudinary.uploader.upload(image)
-    image_url = uploaded_image["url"]
+    image = request.files.get("image", None)
+    if image is not None:
+        uploaded_image = cloudinary.uploader.upload(image)
+        print(uploaded_image)
+        image_url = uploaded_image["url"]
+    else:
+        image_url = "https://placeimg.com/500/400/nature"
     description = request.form["description"]
     user = session.get("user", None)
 
@@ -101,9 +105,12 @@ def update_event(eventID):
     datetime = request.form["datetime"]
     location = request.form["location"]
     category = request.form["category"]
-    image = request.files["image"]
-    uploaded_image = cloudinary.uploader.upload(image)
-    image_url = uploaded_image["url"]
+    image = request.files.get("image", None)
+    if image is not None:
+        uploaded_image = cloudinary.uploader.upload(image)
+        image_url = uploaded_image["url"]
+    else:
+        image_url = request.form["image_url"]
     description = request.form["description"]
 
     query = """

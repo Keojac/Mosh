@@ -86,6 +86,7 @@ function App() {
   // Edit Event Function
 
   const handleEdit = async (edit, index, image) => {
+    console.log(edit);
     const formData = new FormData()
     for (let key in edit) {
       formData.append(key, edit[key])
