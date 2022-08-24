@@ -13,6 +13,7 @@ import Edit from './components/Edit';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
 import Logout from './components/User/Logout';
+import EditProfile from './components/User/EditProfile';
 
 
 function App() {
@@ -102,6 +103,28 @@ function App() {
     ])
   }
 
+    // Edit Profile Function
+
+    const handleProfileEdit = async (profile, index, image) => {
+      const formData = new FormData()
+      for (let key in profile) {
+        formData.append(key, profile[key])
+      }
+      formData.append("image", image)
+      console.log(...formData)
+      const res = await fetch(`/profile/edit-profile/${profile.id}`, {
+        method: "PATCH",
+        body: formData,
+      })
+      const editedProfile = await res.json()
+      setUsers([
+        ...users.slice(0, index),
+        editedProfile,
+        ...users.slice(index + 1),
+      ])
+      navigate("/profile/" + profile.id)
+    }
+
   // Delete Event Function
 
   const handleDelete = async (eventID) => {
@@ -150,6 +173,7 @@ function App() {
         <Route path="/register" element={<Register handleRegister={handleAuth} />} />
         <Route path="/login" element={<Login handleLogin={handleAuth} />} />
         <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />
+        <Route path="/profile/edit-profile/:userID" element={users && <EditProfile currentUser={currentUser} users={users} handleProfileEdit={handleProfileEdit} />} />
       </Routes>
     </div>
   );

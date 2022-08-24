@@ -101,16 +101,42 @@ def update_event(eventID):
     datetime = request.form["datetime"]
     location = request.form["location"]
     category = request.form["category"]
+    image = request.files["image"]
+    uploaded_image = cloudinary.uploader.upload(image)
+    image_url = uploaded_image["url"]
     description = request.form["description"]
 
     query = """
         UPDATE events
-        SET name = %s, datetime = %s, location = %s, category = %s, description = %s
+        SET name = %s, datetime = %s, location = %s, category = %s, image_url = %s, description = %s
         WHERE events.id = %s
         RETURNING *
     """
     cur = g.db["cursor"]
-    cur.execute(query, (name, datetime, location, category, description, eventID))
+    cur.execute(query, (name, datetime, location, category, image_url, description, eventID))
+    g.db["connection"].commit()
+    event = g.db["cursor"].fetchone()
+    return jsonify(event)
+
+@app.route("/profile/edit-profile/<userID>", methods=["PATCH"])
+def update_profile(userID):
+    username = request.form["username"]
+    image = request.files.get("image", None)
+    if image is not None:
+        uploaded_image = cloudinary.uploader.upload(image)
+        profile_image = uploaded_image["url"]
+    else:
+        profile_image = request.form["profile_image"]
+    interests = request.form["interests"]
+    location = request.form["location"]
+    query = """
+        UPDATE users
+        SET username = %s, profile_image = %s, interests = %s, location = %s
+        WHERE users.id = %s
+        RETURNING *
+    """
+    cur = g.db["cursor"]
+    cur.execute(query, (username, profile_image, interests, location, userID))
     g.db["connection"].commit()
     event = g.db["cursor"].fetchone()
     return jsonify(event)

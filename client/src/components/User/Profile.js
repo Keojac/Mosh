@@ -1,11 +1,16 @@
-import { useParams, Outlet } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+import { useEffect } from "react"
 
 const Profile = (props) => {
     const { users } = props
     const { userID } = useParams()
     const param = parseInt(userID)
     const user = users.find((user) => param === user.id)
-    console.log(user);
+    
+    useEffect(() => {
+
+    })
+
     return (
         <div>
             <h1>{user.username}'s Profile</h1>
@@ -14,8 +19,7 @@ const Profile = (props) => {
                 <li><h3>Interests:</h3><p>{user.interests ? user.interests : "No interests listed"}</p></li>
                 <li><h3>Location:</h3><p>{user.location}</p></li>
             </ul>
-            <button>Edit Profile</button>
-            <Outlet />
+            <Link to={`/profile/edit-profile/${user.id}`}><button>Edit Profile</button></Link>
         </div>
     )
 }
