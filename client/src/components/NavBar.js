@@ -28,6 +28,9 @@ function NavBar(props) {
                         {authorised && (
                             <Link className="nav_text" to={"/profile/" + currentUser.id + "/myevents"}>My Events</Link>
                         )}
+                        {authorised && (
+                            <Link className="nav_text" to={"/chat/" + currentUser.id}>Chat</Link>
+                        )}
                         <Link className="nav_text" to="/register">
                             {" "}
                             <Button className="register" variant="dark">

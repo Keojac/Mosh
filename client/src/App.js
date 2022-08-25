@@ -1,6 +1,11 @@
 import './App.css';
+
+import ChatRoom from './components/Messages/ChatRoom';
+
+
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+
 import NavBar from './components/NavBar.js'
 import Home from './components/Homepage';
 import Categories from './components/Categories';
@@ -17,6 +22,8 @@ import EditProfile from './components/User/EditProfile';
 
 
 function App() {
+
+
   // all events
   const [events, setEvents] = useState(null)
   // all users
@@ -104,27 +111,27 @@ function App() {
     ])
   }
 
-    // Edit Profile Function
+  // Edit Profile Function
 
-    const handleProfileEdit = async (profile, index, image) => {
-      const formData = new FormData()
-      for (let key in profile) {
-        formData.append(key, profile[key])
-      }
-      formData.append("image", image)
-      console.log(...formData)
-      const res = await fetch(`/profile/edit-profile/${profile.id}`, {
-        method: "PATCH",
-        body: formData,
-      })
-      const editedProfile = await res.json()
-      setUsers([
-        ...users.slice(0, index),
-        editedProfile,
-        ...users.slice(index + 1),
-      ])
-      navigate("/profile/" + profile.id)
+  const handleProfileEdit = async (profile, index, image) => {
+    const formData = new FormData()
+    for (let key in profile) {
+      formData.append(key, profile[key])
     }
+    formData.append("image", image)
+    console.log(...formData)
+    const res = await fetch(`/profile/edit-profile/${profile.id}`, {
+      method: "PATCH",
+      body: formData,
+    })
+    const editedProfile = await res.json()
+    setUsers([
+      ...users.slice(0, index),
+      editedProfile,
+      ...users.slice(index + 1),
+    ])
+    navigate("/profile/" + profile.id)
+  }
 
   // Delete Event Function
 
@@ -175,7 +182,9 @@ function App() {
         <Route path="/login" element={<Login handleLogin={handleAuth} />} />
         <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />
         <Route path="/profile/edit-profile/:userID" element={users && <EditProfile currentUser={currentUser} users={users} handleProfileEdit={handleProfileEdit} />} />
+        <Route path="/chat/:userID" element={users && <ChatRoom currentUser={currentUser} users={users} />} />
       </Routes>
+      
     </div>
   );
 }
