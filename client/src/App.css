@@ -1,5 +1,9 @@
 /* Homepage css */
 
+html, body {
+  min-height: 100%;
+}
+
 .App {
   text-align: center;
 }

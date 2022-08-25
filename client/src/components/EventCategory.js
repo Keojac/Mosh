@@ -8,7 +8,7 @@ const Event = (props) => {
         <div className="individual_event">
             <img src={event.image_url} alt="user uploaded event" />
             <ul className="form">
-                <Link to={"/events/" + category + "/" + event.id}><li>{event.name}</li></Link>
+            <li><Link to={"/events/" + category + "/" + event.id}>{event.name}</Link></li>
                 <li>Date: {event.datetime}</li>
                 <li>Location: {event.location}</li>
             </ul>

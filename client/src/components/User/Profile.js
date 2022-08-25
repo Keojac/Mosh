@@ -6,7 +6,6 @@ const Profile = (props) => {
     const { userID } = useParams()
     const param = parseInt(userID)
     const user = users.find((user) => param === user.id)
-
     return (
         <div>
             <h1>{user.username}'s Profile</h1>

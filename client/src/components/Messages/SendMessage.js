@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {db} from '../../firebase'
 import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
-import "./Message.css"
 
-const style = {
-  form: `h-14 w-full max-w-[780px]  flex text-xl absolute bottom-0`,
-  input: `w-full text-xl p-3 bg-gray-900 text-white outline-none border-none`,
-  button: `w-[20%] bg-orange-500`,
-};
+
+// const style = {
+//   form: `h-14 w-full max-w-[780px]  flex text-xl absolute bottom-0`,
+//   input: `w-full text-xl p-3 bg-gray-900 text-white outline-none border-none`,
+//   button: `w-[20%] bg-orange-500`,
+// };
 
 const SendMessage = ({scroll, currentUser}) => {
   const [input, setInput] = useState('');
@@ -30,15 +30,15 @@ const SendMessage = ({scroll, currentUser}) => {
   }
 
   return (
-    <form onSubmit={sendMessage} className={style.form}>
+    <form onSubmit={sendMessage} className="form">
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className={style.input}
+        className="input"
         type='text'
         placeholder='Message'
       />
-      <button className={style.button} type='submit'>
+      <button className="button" type='submit'>
         Send
       </button>
     </form>

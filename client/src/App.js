@@ -60,7 +60,7 @@ function App() {
 
   useEffect(() => {
     getUsers()
-  }, [])
+  }, [authorised])
 
   // Setting authorisation for the register route
 
@@ -70,7 +70,7 @@ function App() {
     setCurrentUser(authed.user)
     navigate("/")
   }
-  console.log(currentUser);
+  // console.log(currentUser);
   // Check login status/ authorisation
 
   useEffect(() => {
@@ -174,7 +174,7 @@ function App() {
         <Route path="/events/categories" element={<Categories />} />
         <Route path="/events/:category" element={events && <EventCategory events={events} />} />
         <Route path="/events/:category/:eventID" element={authorised && users && events && <IndividualEvent events={events} users={users} />} />
-        <Route path="/profile/:userID" element={authorised && users && events && <Profile currentUser={currentUser} events={events} users={users} />} />
+        <Route path="/profile/:userID" element={authorised && users && events && currentUser && <Profile currentUser={currentUser} events={events} users={users} />} />
         <Route path="/profile/:userID/myevents" element={authorised && users && events && <MyEvents currentUser={currentUser} events={events} />} />
         <Route path="/events/new" element={authorised && users && <Form createEvent={createEvent} user={currentUser} />} />
         <Route path="/profile/edit-event/:eventID" element={users && events && <Edit events={events} currentUser={currentUser} handleEdit={handleEdit} handleDelete={handleDelete} />} />

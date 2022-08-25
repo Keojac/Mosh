@@ -4,18 +4,16 @@ import Messages from './Messages';
 import SendMessage from './SendMessage';
 import { db } from '../../firebase';
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore';
-import "./Message.css"
+import "./Chat.css"
 
-const style = {
-    main: `flex flex-col p-[10px]`,
-};
+
 
 const ChatRoom = (props) => {
     const { users, currentUser } = props
     const { userID } = useParams()
     const param = parseInt(userID)
     const user = users.find((user) => param === user.id)
-    console.log(user);
+    // console.log(user);
     const [messages, setMessages] = useState([]);
     const scroll = useRef();
 
@@ -24,7 +22,8 @@ const ChatRoom = (props) => {
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let messages = [];
             querySnapshot.forEach((doc) => {
-                messages.push({ ...doc.data(), id: user.id });
+                console.log(doc.data());
+                messages.push({ ...doc.data()});
             });
             setMessages(messages);
         });
@@ -32,17 +31,26 @@ const ChatRoom = (props) => {
     }, []);
 
     return (
-        <>
-            <main className={style.main}>
-                {messages &&
-                    messages.map((message) => (
-                        <Messages key={message.id} message={message} currentUser={currentUser} />
-                    ))}
-            </main>
+        <section style={{backgroundColor: "#eee"}}>
+            <div className="container py-5">
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-8 col-lg-6 col-xl-4">
+                        <div className="card" id="chat1" style={{borderRadius: "15px"}}>
+                            <div className="card-body">
+                                {messages &&
+                                    messages.map((message) => (
+                                        <Messages key={message.id} message={message} currentUser={currentUser} />
+                                    ))}
 
-            <SendMessage scroll={scroll} currentUser={currentUser} />
-            <span ref={scroll}></span>
-        </>
+
+                                <SendMessage scroll={scroll} currentUser={currentUser} />
+                                <span ref={scroll}></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 
