@@ -40,7 +40,7 @@ const MyEvents = (props) => {
         return (
             <>
                 <h1>My Events</h1>
-                <table>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Name</th>

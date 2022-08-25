@@ -8,19 +8,21 @@ const IndividualEvent = (props) => {
     return (
         <div>
             <div>
-                <Link to={"/events/" + event.category}><p>Back to {event.category}</p></Link>
+                <Link to={"/events/" + event.category}><p id="prev">Back to {event.category}</p></Link>
                 <h1>{event.name}</h1>
-                <img src={event.image_url} alt="user uploaded event" />
-                <ul className="form">
-                    <li>Date/ Time: {event.datetime}</li>
-                    <li>Location: {event.location}</li>
-                    <li>Description: {event.description}</li>
-                </ul>
-            </div>
-            <div>
-            <h3>Get in touch:</h3>
-            <img className="profile_picture" src={user.profile_image} alt="user profile" />
-            <h4>{user.username}</h4>
+                <img id="event_image" src={event.image_url} alt="user uploaded event" />
+                <div className="event_details">
+                    <ul className="form">
+                        <li>Date/ Time: {event.datetime}</li>
+                        <li>Location: {event.location}</li>
+                        <li>Description: {event.description}</li>
+                    </ul>
+                </div>
+                <div className="contact">
+                    <h3>Get in touch:</h3>
+                    <img className="profile_picture" src={user.profile_image} alt="user profile" />
+                    <h4>{user.username}</h4>
+                </div>
             </div>
         </div>
     )

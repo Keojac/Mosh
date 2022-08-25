@@ -1,11 +1,15 @@
 /* Homepage css */
 
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
 html, body {
   min-height: 100%;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .App {
   text-align: center;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .carousel {
@@ -100,6 +104,10 @@ html, body {
   margin-top: 30px;
 }
 
+.upload {
+  margin-left: 170px;
+}
+
 /* Category event list page */
 
 .events_container {
@@ -122,12 +130,49 @@ html, body {
   height: 600px;
 }
 
+#back {
+  margin-right: 1000px;
+}
+
 /* Individual event page */
 
 .profile_picture {
   height: 150px;
-  width: 20%;
-  border-radius: 30px;
+  width: 40%;
+  border-radius: 9999px;
+}
+
+.event_details {
+  width: fit-content;
+  margin-left: 90px;
+  margin-top: 50px;
+}
+
+.contact {
+  width: 400px;
+  float: right;
+  display: block;
+  margin-top: -180px;
+  margin-right: 80px;
+}
+
+.descript_tag {
+  margin-right: 10px;
+}
+
+#prev {
+  margin-right: 940px;
+  margin-top: 20px;
+}
+
+/* My Events Page */
+
+.table {
+  margin: 0 auto;
+}
+
+#create_heading {
+  margin-top: 10px;
 }
 
 /* Logout */
@@ -144,6 +189,24 @@ html, body {
 .event_table, td {
   padding-left: 50px;
   padding-top: 20px;
+}
+
+/* Profile page */
+
+.profile_image {
+  width: 20%;
+  height: 200px;
+}
+
+#edit_button {
+  margin-left: 30px;
+}
+
+/* Edit Profile page */
+
+#back_profile {
+  margin-left: -1100px;
+  margin-top: -40px;
 }
 
 @media (max-width: 400px) {
@@ -201,6 +264,64 @@ html, body {
 
   .individual_event {
     height: 450px;
+  }
+
+  #back {
+    margin-right: 180px;
+  }
+
+  #category_title {
+    margin-right: 20px;
+    font-size: 50px;
+  }
+
+  /* Create Form */
+  
+  .upload {
+    margin-left: 50px;
+  }
+
+  .description {
+    width: 300px;
+  }
+
+  /* Individual Event Page */
+
+  #event_image {
+    margin: 0 auto;
+  }
+
+  .contact {
+    width: 420px;
+    margin-top: -340px;
+    float: right;
+
+  }
+
+  .event_details {
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    float: right;
+    font-size: 18px;
+  }
+
+  #prev {
+    margin-right: 240px;
+  }
+
+  /* profile page */
+
+  .profile_image {
+    width: 55%;
+  }
+
+  /* Edit Profile page */
+
+  #back_profile {
+    margin-left: -280px;
+    margin-top: -36px;
+    font-size: 16px;
   }
 
   /* Logout */

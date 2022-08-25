@@ -40,9 +40,9 @@ const EventCategory = (props) => {
     if (eventList) {
         return (
             <div className="events_container">
-                <Link to={"/events/categories"}><p>Back to category list</p></Link>
-                <h1>{category}</h1>
-                <input type="text" placeholder="Search by name or location..." onChange={(e) => setQuery(e.target.value)} />
+                <Link to={"/events/categories"}><p id="back">Back to category list</p></Link>
+                <h1 id="category_title">{category}</h1>
+                <input id="filter" type="text" placeholder="Search by name or location..." onChange={(e) => setQuery(e.target.value)} />
                 {search(eventList)}
             </div>
         )

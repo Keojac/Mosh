@@ -63,7 +63,7 @@ const EditProfile = (props) => {
     return (
         <div>
             <h2>Edit Profile</h2>
-            <Link to={"/profile/" + user.id}><p>Back to Profile</p></Link>
+            <Link to={"/profile/" + user.id}><p id="back_profile">Back to Profile</p></Link>
             <form onSubmit={onSubmit}>
                 <ul className="form">
                     <li>

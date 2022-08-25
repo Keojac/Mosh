@@ -39,23 +39,23 @@ const Form = (props) => {
 
     return (
         <div>
-            <h2>Create Event</h2>
+            <h2 id="create_heading">Create Event</h2>
             <form id="create_event" onSubmit={handleSubmit}>
                 <ul className="form">
                     <li>
-                        <label htmlFor="name">Name of Event:</label>
+                        <label className="descript_tag" htmlFor="name">Name of Event:</label>
                         <input type="text" name="name" onChange={handleChange} />
                     </li>
                     <li>
-                        <label htmlFor="datetime">Datetime:</label>
+                        <label className="descript_tag" htmlFor="datetime">Datetime:</label>
                         <input type="datetime-local" name="datetime" onChange={handleChange} />
                     </li>
                     <li>
-                        <label htmlFor="location">Location:</label>
+                        <label className="descript_tag" htmlFor="location">Location:</label>
                         <input type="text" name="location" onChange={handleChange} />
                     </li>
                     <li>
-                        <label htmlFor="category">Category:</label>
+                        <label className="descript_tag" htmlFor="category">Category:</label>
                         <select name="category" form="create_event" onChange={handleChange}>
                             <option value="Art">Art</option>
                             <option value="Music">Music</option>
@@ -65,13 +65,13 @@ const Form = (props) => {
                             <option value="Virtual">Virtual</option>
                         </select>
                     </li>
-                    <li>
-                        <label htmlFor="image">Image (default selected if blank):</label>
-                        <input type="file" name="image" onChange={handleImageChange} />
+                    <li className="upload">
+                        <label className="descript_tag" htmlFor="image">Image (default selected if blank):</label>
+                        <input  type="file" name="image" onChange={handleImageChange} />
                     </li>
                     <li>
-                        <label htmlFor="description">Description:</label>
-                        <textarea rows="8" cols="50" form="create_event" name="description" onChange={handleChange} />
+                        <label className="descript_tag" htmlFor="description">Description:</label>
+                        <textarea className="description" rows="8" cols="50" form="create_event" name="description" onChange={handleChange} />
                     </li>
                     <li>
                         <button>Submit</button>
