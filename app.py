@@ -196,7 +196,7 @@ def login():
     
     user.pop("password")
     session["user"] = user
-    return jsonify(success=True, user=user)
+    return jsonify(success=True, user=user, msg="Succesfully Logged In!")
 
 @app.route("/logout", methods=["POST"])
 def logout():

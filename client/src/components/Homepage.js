@@ -50,19 +50,33 @@ function Carousels() {
                     />
                 </Carousel.Item>
             </Carousel>
+        </div>
+    )
+}
+
+const Home = (props) => {
+    const { currentUser, authorised } = props
+    if (authorised) {
+        return (
+            <div className="carousel-container">
+                <p id="welcome">Welcome back, {currentUser.username}</p>
+                <h2>Create your own crew to mosh at events with</h2>
+                <Carousels />
+                <div className="mission">
+                    <p id="statement">Our mission is to make events more accessible to everyone. We don't want factors such as
+                        age, genre or not having someone to go with, limit someone from attending something they enjoy.
+                        So we wanted to make something that could bring people together over a shared love for their interests.
+                    </p>
+                </div>
             </div>
         )
-    }
-
-    const Home = () => {
+    } else {
         return (
             <div className="carousel-container">
                 <h2>Create your own crew to mosh at events with</h2>
                 <Carousels />
                 <div className="mission">
-                    <br />
-                    <br />
-                    <p>Our mission is to make events more accessible to everyone. We don't want factors such as
+                    <p id="statement">Our mission is to make events more accessible to everyone. We don't want factors such as
                         age, genre or not having someone to go with, limit someone from attending something they enjoy.
                         So we wanted to make something that could bring people together over a shared love for their interests.
                     </p>
@@ -70,6 +84,7 @@ function Carousels() {
             </div>
         )
     }
+}
 
 
 export default Home

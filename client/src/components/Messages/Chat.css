@@ -1,7 +1,8 @@
 .input {
     padding: 0.75rem;
-    background-color: #111827;
-    color: #ffffff;
+    /* background-color: #111827; */
+    background-color: #FCF5E5;
+    color: #4B5563;
     font-size: 1.25rem;
     line-height: 1.75rem;
     width: 100%;
@@ -12,19 +13,14 @@
 .button {
     margin-top: 10px;
     width: 20%;
-    background-color: orange;
+    background-color: #fc8b18;
 }
 
 .name {
-    position: absolute;
+    position: relative;
     color: #4B5563;
     font-size: 0.75rem;
     line-height: 1rem;
-    margin-top: 30px;
-}
-
-.me-3 {
-    margin-right: 50px !important;
 }
 
 /* React message bootstrap */

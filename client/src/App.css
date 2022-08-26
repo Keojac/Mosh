@@ -50,6 +50,15 @@ html, body {
   border-radius: 20px;
 }
 
+#statement {
+  padding: 20px;
+  padding-top: 60px;
+}
+
+#welcome {
+  margin-right: 1000px;
+}
+
 /* Navbar css */
 
 .navbar {
@@ -225,11 +234,12 @@ html, body {
   }
 
   .mission {
-    height: 170px;
+    height: 200px;
   }
 
-  .mission, p {
-    font-size: 12px;
+  #statement{
+    font-size: 14px;
+    padding: 20px;
   }
 
   /* Navbar css */
@@ -244,6 +254,10 @@ html, body {
 
   .navbar-collapse, .collapse {
     margin-left: 10px;
+  }
+
+  #welcome {
+    margin-right: 180px;
   }
 
   /* Category page css */

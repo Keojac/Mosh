@@ -30,10 +30,10 @@ const Messages = ({ message, currentUser }) => {
     if (message.id === currentUser.id) {
         // Current User sending message
         return (
-            <div className="d-flex flex-row justify-content-start mb-4">
+            <div className="d-flex flex-row justify-content-end mb-4">
                 <div className="p-3 me-3 border" style={divStyle2}>
-                    <p className="name" >{message.name}</p>
                     <p>{message.text}</p>
+                    <p className="name user_sent" >{message.name}</p>
                 </div>
             </div>
         )
@@ -42,8 +42,8 @@ const Messages = ({ message, currentUser }) => {
         return (
             <div className="d-flex flex-row justify-content-start mb-4">
                 <div className="p-3 ms-3" style={divStyle}>
-                    <p className="name" >{message.name}</p>
                     <p>{message.text}</p>
+                    <p className="name user_received" >{message.name}</p>
                 </div>
             </div>
         )

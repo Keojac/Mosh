@@ -32,6 +32,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   // authorisation
   const [authorised, setAuthorised] = useState(null)
+  // Message Flash
+  const [message, setMessage] = useState("")
   // navigate for redirecting
   const navigate = useNavigate()
 
@@ -79,6 +81,8 @@ function App() {
       const data = await res.json()
       setAuthorised(data.success)
       setCurrentUser(data.user)
+      setMessage(data.message)
+      console.log(message);
     }
     checkIfLoggedIn()
   }, [])
@@ -170,7 +174,7 @@ function App() {
     <div className="App">
       <NavBar authorised={authorised} handleLogout={handleLogout} currentUser={currentUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home currentUser={currentUser} authorised={authorised} />} />
         <Route path="/events/categories" element={<Categories />} />
         <Route path="/events/:category" element={events && <EventCategory events={events} />} />
         <Route path="/events/:category/:eventID" element={authorised && users && events && <IndividualEvent events={events} users={users} />} />
