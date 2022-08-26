@@ -13,6 +13,7 @@ Password: demo
 ## Technology Used
 
 - Javascript
+- Python
 - HTML5
 - CSS3
 - Bootstrap
