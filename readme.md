@@ -38,21 +38,19 @@ Password: demo
 
 ## User Stories 
 
-```
-Chan is an avid music fanatic who loves all kinds of genres. Chan's favourite genre is heavy metal but unfortunately his friendship circle are not big fans and will not attend a concert with Chan. Chan feels awkward going to a gig by himself and wants to be able to find other heavy metal fans who are keen to go to concerts. Providing a platform to facilitate this connection would be great for Chan because he doesn't know how else to meet others.
-```
 
-```
-Flora considers herself to be an older person when she goes out to gigs and events. Flora's friendship circle thinks they're too old to go out but Flora is young at heart and feels held back. Flora wants to be able to go to events without feeling judged for being there by herself or because of her age. Flora wants to still be able to do the things she enjoys and share that experience with someone else.
-```
+*"Chan is an avid music fanatic who loves all kinds of genres. Chan's favourite genre is heavy metal but unfortunately his friendship circle are not big fans and will not attend a concert with Chan. Chan feels awkward going to a gig by himself and wants to be able to find other heavy metal fans who are keen to go to concerts. Providing a platform to facilitate this connection would be great for Chan because he doesn't know how else to meet others."*
 
-```
-Jackie does not have a large amount of friend and wants to expand her circle to meet other people. She thinks events are a great way to overcome the awkward barrier of trying to break the ice but doesn't know how to find others who are also looking for friends. Jackie wants an easy way to find events that are of interest to her and with someone else who she could meet up with.
-```
 
-```
-Elliott has a lot of social anxiety when they leave their house but still loves adventuring out and trying new things. Elliott thinks they're ready to try going to event but would like someone who understands their situation so they can be there to make Elliott feel more comfortable. Elliott would love to be able to find someone who would be happy to have them tag along but doesn't know how to reach out. Mosh enables Elliott to find that person for them in a safe space.
-```
+
+*"Flora considers herself to be an older person when she goes out to gigs and events. Flora's friendship circle thinks they're too old to go out but Flora is young at heart and feels held back. Flora wants to be able to go to events without feeling judged for being there by herself or because of her age. Flora wants to still be able to do the things she enjoys and share that experience with someone else."*
+
+
+*"Jackie does not have a large amount of friend and wants to expand her circle to meet other people. She thinks events are a great way to overcome the awkward barrier of trying to break the ice but doesn't know how to find others who are also looking for friends. Jackie wants an easy way to find events that are of interest to her and with someone else who she could meet up with."*
+
+
+*"Elliott has a lot of social anxiety when they leave their house but still loves adventuring out and trying new things. Elliott thinks they're ready to try going to event but would like someone who understands their situation so they can be there to make Elliott feel more comfortable. Elliott would love to be able to find someone who would be happy to have them tag along but doesn't know how to reach out. Mosh enables Elliott to find that person for them in a safe space."*
+
 ---
 ## Design and Process
 
